@@ -1,4 +1,5 @@
 using TestBlazor3K.ApiRequest;
+using TestBlazor3K.ApiRequest.Services;
 using TestBlazor3K.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped<ApiRequestService>();
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5039/") });
-
+builder.Services.AddSingleton<UserService>();
 
 var app = builder.Build();
 
